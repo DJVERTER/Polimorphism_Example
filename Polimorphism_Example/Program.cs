@@ -14,16 +14,33 @@
                 return happyNews;
             }
         }
+
+        public class SuperNews : News
+        {
+            public string SuperMethod()
+            {
+                string happyNews = "Super! " + Description;
+                return happyNews;
+            }
+        }
         static void Main(string[] args)
         {
             News newsObject = new News();
             newsObject.Description = "First News";
-
-
-            Console.WriteLine("Hello, World!");
             Console.WriteLine(newsObject.Description);
             Console.WriteLine(newsObject.GetHappyNews());
             Console.WriteLine(newsObject.Created);
+
+            Console.WriteLine("------------------------");
+
+            SuperNews newsSuper = new SuperNews();
+            newsSuper.Description = "First super news";
+            Console.WriteLine(newsSuper.Description);
+            Console.WriteLine(newsSuper.GetHappyNews());
+            Console.WriteLine(newsSuper.SuperMethod());
+            Console.WriteLine(newsSuper.Created);
+
+
             Console.ReadLine();
         }
     }
