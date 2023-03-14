@@ -13,6 +13,18 @@
                 string happyNews = "Happy! " + Description;
                 return happyNews;
             }
+
+            public virtual string GetWelcomeNews()
+            {
+                string welcomenews = "Welcome! " + Description;
+                return welcomenews;
+            }
+
+            public string GetTransactionNews()
+            {
+                string welcomenews = "Transaction! " + Description;
+                return welcomenews;
+            }
         }
 
         public class SuperNews : News
@@ -21,6 +33,18 @@
             {
                 string happyNews = "Super! " + Description;
                 return happyNews;
+            }
+
+            public override string GetWelcomeNews()
+            {
+                string welcomenews = "OverrideWelcome! " + Description;
+                return welcomenews;
+            }
+
+            public new string GetTransactionNews()
+            {
+                string welcomenews = "NewTransaction! " + Description;
+                return welcomenews;
             }
         }
         static void Main(string[] args)
@@ -39,6 +63,13 @@
             Console.WriteLine(newsSuper.GetHappyNews());
             Console.WriteLine(newsSuper.SuperMethod());
             Console.WriteLine(newsSuper.Created);
+
+            Console.WriteLine("------------------------");
+
+            News tempNews = new SuperNews();
+            Console.WriteLine(tempNews.GetWelcomeNews());
+            Console.WriteLine(tempNews.GetTransactionNews());
+
 
 
             Console.ReadLine();
